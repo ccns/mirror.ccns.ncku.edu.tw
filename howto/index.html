@@ -122,7 +122,7 @@ b. Debian:
 <p>(因頻寬有限，iso 映像檔下載暫時不對外開放，僅提供持有成功大學 ip 的使用者下載，造成不便請見諒)</p>
 <ul>
 <li>將套件更新來源類型從「鏡像站列表」(<code>mirrorlist</code>) 轉換成「單一鏡像站」(<code>baseurl</code>)
-<pre class="highlight"><code class="language-bash">sed -i 's/mirrorlist=/#mirrorlist/g' /etc/yum.repos.d/*.repo
+<pre class="highlight"><code class="language-bash">sed -i 's/mirrorlist=/#mirrorlist=/g' /etc/yum.repos.d/*.repo
 sed -i 's/#baseurl=/baseurl=/g' /etc/yum.repos.d/*.repo</code></pre></li>
 <li>將 <code>mirror.centos.org</code> 代換成 <code>centos.ccns.ncku.edu.tw</code>
 <pre class="highlight"><code class="language-bash">sed -i 's/mirror.centos.org/centos.ccns.ncku.edu.tw/g' /etc/yum.repos.d/*.repo</code></pre></li>
