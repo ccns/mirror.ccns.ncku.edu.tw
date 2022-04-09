@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>如何使用本服務 - CCNS Mirrors</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u5982\u4f55\u4f7f\u7528\u672c\u670d\u52d9";
+    var mkdocs_page_input_path = "howto.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> CCNS Mirrors</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">歡迎使用 CCNS 鏡像站！</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">如何使用本服務</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#ubuntu-debian">Ubuntu, Debian</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#centos">CentOS</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#rocky-linux">Rocky Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#arch-linux">Arch Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#arch-linux-cn">Arch Linux CN</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#alpine-linux">Alpine Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#putty">PuTTY</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../status-check/">檢查服務狀態</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../about/">關於本服務與聯絡我們</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">CCNS Mirrors</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>如何使用本服務</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="ccns">如何使用 CCNS 鏡像站服務？</h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>本文件用到的終端機指令都需要用到 <a href="http://linux.vbird.org/linux_basic/0212filepermission.php#UserandGroup">root 權限</a>，若以一般使用者權限使用終端機介面, 請自行在各指令前加上 <a href="https://zh.wikipedia.org/wiki/Sudo"><code>sudo</code></a>, 或其他你喜歡的提權指令, 例如: <a href="https://github.com/slicer69/doas"><code>doas</code></a></p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>因應取代大量字串需求，本文件多使用 sed <a href="http://linux.vbird.org/linux_basic/0330regularex.php#sed">(基本教學)</a> 作為工具，並只用到 <code>s/&lt;原字串&gt;/&lt;欲取代字串&gt;/g</code> 這個原則來進行操作。也可以用你習慣的文字編輯器的「搜尋取代」功能來做到一樣的事情。</p>
+</div>
+<h2 id="ubuntu-debian"><a href="//ubuntu.ccns.ncku.edu.tw/ubuntu">Ubuntu</a>, <a href="//debian.ccns.ncku.edu.tw/debian">Debian</a></h2>
+<ul>
+<li>切換套件來源列表裡面的網域:</li>
+</ul>
+<p>a. Ubuntu:
+<pre class="highlight"><code class="language-bash">sed -i 's/archive.ubuntu.com/ubuntu.ccns.ncku.edu.tw/g' /etc/apt/sources.list</code></pre>
+b. Debian:
+<pre class="highlight"><code class="language-bash">sed -i 's/deb.debian.org/debian.ccns.ncku.edu.tw/g' /etc/apt/sources.list</code></pre></p>
+<ul>
+<li>更新套件列表
+<pre class="highlight"><code>apt update</code></pre></li>
+<li>更新套件:
+<pre class="highlight"><code>apt upgrade</code></pre></li>
+</ul>
+<h2 id="centos"><a href="//centos.ccns.ncku.edu.tw/centos">CentOS</a></h2>
+<p>(因頻寬有限，iso 映像檔下載暫時不對外開放，僅提供持有成功大學 ip 的使用者下載，造成不便請見諒)</p>
+<ul>
+<li>將套件更新來源類型從「鏡像站列表」(<code>mirrorlist</code>) 轉換成「單一鏡像站」(<code>baseurl</code>)
+<pre class="highlight"><code class="language-bash">sed -i 's/mirrorlist=/#mirrorlist/g' /etc/yum.repos.d/*.repo
+sed -i 's/#baseurl=/baseurl=/g' /etc/yum.repos.d/*.repo</code></pre></li>
+<li>將 <code>mirror.centos.org</code> 代換成 <code>centos.ccns.ncku.edu.tw</code>
+<pre class="highlight"><code class="language-bash">sed -i 's/mirror.centos.org/centos.ccns.ncku.edu.tw/g' /etc/yum.repos.d/*.repo</code></pre></li>
+<li>更新套件列表與更新套件:
+<pre class="highlight"><code class="language-bash">dnf upgrade</code></pre>
+(以上適用於 CentOS 8 , CentOS Stream 8)</li>
+</ul>
+<p><pre class="highlight"><code>yum update</code></pre>
+(以上相容 CentOS 7, CentOS 8 與 CentOS Stream 8)</p>
+<h2 id="rocky-linux"><a href="//rockylinux.ccns.ncku.edu.tw/pub/rocky/">Rocky Linux</a></h2>
+<ul>
+<li>將套件更新來源類型從「鏡像站列表」(<code>mirrorlist</code>) 轉換成「單一鏡像站」(<code>baseurl</code>)
+<pre class="highlight"><code class="language-bash">sed -i 's/mirrorlist=/#mirrorlist=/g' /etc/yum.repos.d/*.repo
+sed -i 's/#baseurl=/baseurl=/g' /etc/yum.repos.d/*.repo</code></pre></li>
+<li>將 <code>dl.rockylinux.org</code> 代換成 <code>rockylinux.ccns.ncku.edu.tw</code>
+<pre class="highlight"><code class="language-bash">sed -i 's/dl.rockylinux.org/rockylinux.ccns.ncku.edu.tw/g' /etc/yum.repos.d/*.repo</code></pre></li>
+<li>更新套件列表與更新套件:
+<pre class="highlight"><code class="language-bash">dnf upgrade</code></pre></li>
+</ul>
+<h2 id="arch-linux"><a href="//archlinux.ccns.ncku.edu.tw/archlinux">Arch Linux</a></h2>
+<ul>
+<li>切換套件來源列表裡面的網域, 打開文字編輯器並在 <code>/etc/pacman.d/mirrorlist</code> 行首加上:
+<pre class="highlight"><code class="language-conf">Server = http://archlinux.ccns.ncku.edu.tw/archlinux/$repo/os/$arch</code></pre></li>
+<li>
+<p>強制更新套件列表:
+<pre class="highlight"><code class="language-bash">pacman -Syy</code></pre></p>
+</li>
+<li>
+<p>更新套件
+<pre class="highlight"><code class="language-bash">pacman -Su</code></pre></p>
+</li>
+</ul>
+<h2 id="arch-linux-cn"><a href="//archlinux.ccns.ncku.edu.tw/archlinuxcn">Arch Linux CN</a></h2>
+<ul>
+<li>在 <code>/etc/pacman.conf</code> 加上以下設定增加 <code>[archlinuxcn]</code> 這個 repository:
+<pre class="highlight"><code class="language-conf">[archlinuxcn]
+Include = /etc/pacman.d/mirrorlist.archlinuxcn</code></pre></li>
+<li>切換套件來源列表裡面的網域, 打開文字編輯器並在 <code>/etc/pacman.d/mirrorlist.archlinuxcn</code> 加上:
+<pre class="highlight"><code class="language-conf">Server = http://archlinux.ccns.ncku.edu.tw/archlinuxcn/$arch</code></pre></li>
+<li>
+<p>強制更新套件列表:
+<pre class="highlight"><code class="language-bash">pacman -Syy</code></pre></p>
+</li>
+<li>
+<p>更新套件
+<pre class="highlight"><code class="language-bash">pacman -Su</code></pre></p>
+</li>
+</ul>
+<h2 id="alpine-linux"><a href="//alpine.ccns.ncku.edu.tw/alpine">Alpine Linux</a></h2>
+<ul>
+<li>
+<p>切換套件來源列表裡面的網域:
+<pre class="highlight"><code class="language-bash">sed -i 's/dl-cdn.alpinelinux.org/alpine.ccns.ncku.edu.tw/g' /etc/apk/repositories</code></pre></p>
+</li>
+<li>
+<p>更新套件列表:
+<pre class="highlight"><code class="language-bash">apk update</code></pre></p>
+</li>
+<li>
+<p>更新套件:
+<pre class="highlight"><code class="language-bash">apk upgrade</code></pre></p>
+</li>
+</ul>
+<h2 id="putty"><a href="//putty.ccns.ncku.edu.tw/putty">PuTTY</a></h2>
+<p>直接進入 <a href="//putty.ccns.ncku.edu.tw/putty">http://putty.ccns.ncku.edu.tw/putty</a> 即可瀏覽相關資源</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../status-check/" class="btn btn-neutral float-right" title="檢查服務狀態">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="歡迎使用 CCNS 鏡像站！"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../status-check/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
