@@ -1,3 +1,9 @@
 [dir=ltr] .md-header__title {
 	 margin-left:.4rem;
 }
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        #39C5BB;
+  --md-primary-fg-color--light: #ECB7B7;
+  --md-primary-fg-color--dark:  #90030C;
+}
