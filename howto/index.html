@@ -267,6 +267,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#proxmox" class="md-nav__link">
+    Proxmox
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#centos" class="md-nav__link">
     CentOS
   </a>
@@ -380,6 +387,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#proxmox" class="md-nav__link">
+    Proxmox
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#centos" class="md-nav__link">
     CentOS
   </a>
@@ -460,6 +474,23 @@ b. Debian:
 <li>更新套件列表
 <div class="highlight"><pre><span></span><code>apt update
 </code></pre></div></li>
+<li>更新套件:
+<div class="highlight"><pre><span></span><code>apt upgrade
+</code></pre></div></li>
+</ul>
+<h2 id="proxmox"><a href="//proxmox.ccns.ncku.edu.tw/debian">Proxmox</a></h2>
+<ul>
+<li>本站目前僅提供pve、ceph-pacific的bullseye版本之鏡像</li>
+<li>
+<p>切換套件來源
+<div class="highlight"><pre><span></span><code>sed -i <span class="s1">&#39;s/download.proxmox.com/proxmox.ccns.ncku.edu.tw/g&#39;</span> /etc/apt/sources.list.d/pve-no-subscription.list
+</code></pre></div></p>
+</li>
+<li>
+<p>更新套件列表
+<div class="highlight"><pre><span></span><code>apt update
+</code></pre></div></p>
+</li>
 <li>更新套件:
 <div class="highlight"><pre><span></span><code>apt upgrade
 </code></pre></div></li>
