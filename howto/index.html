@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="https://avatars.githubusercontent.com/u/7893404">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.30">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
     
     
       
@@ -310,6 +310,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Proxmox">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ct-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      CT Templates
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -456,6 +471,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Proxmox">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ct-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      CT Templates
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -560,7 +590,6 @@ b. Debian:
 </ul>
 <h2 id="proxmox"><a href="//proxmox.ccns.ncku.edu.tw/debian">Proxmox</a></h2>
 <ul>
-<li>本站目前僅提供pve、ceph-pacific的bullseye, bookworm版本之鏡像</li>
 <li>
 <p>切換套件來源
 <div class="highlight"><pre><span></span><code>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s/download.proxmox.com/proxmox.ccns.ncku.edu.tw/g&#39;</span><span class="w"> </span>/etc/apt/sources.list.d/pve-no-subscription.list
@@ -575,6 +604,13 @@ b. Debian:
 <div class="highlight"><pre><span></span><code>apt upgrade
 </code></pre></div></li>
 </ul>
+<h3 id="ct-templates">CT Templates</h3>
+<ul>
+<li>切換範本下載位置</li>
+</ul>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>/usr/share/perl5/PVE/APLInfo.pm<span class="w"> </span>/usr/share/perl5/PVE/APLInfo.pm_back
+sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s|http://download.proxmox.com|https://proxmox.ccns.ncku.edu.tw/|g&#39;</span><span class="w"> </span>/usr/share/perl5/PVE/APLInfo.pm
+</code></pre></div>
 <h2 id="centos"><a href="//centos.ccns.ncku.edu.tw/centos">CentOS</a></h2>
 <p>(因頻寬有限，iso 映像檔下載暫時不對外開放，僅提供持有成功大學 ip 的使用者下載，造成不便請見諒)</p>
 <ul>
