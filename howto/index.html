@@ -334,24 +334,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#centos" class="md-nav__link">
-    <span class="md-ellipsis">
-      CentOS
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rocky-linux" class="md-nav__link">
-    <span class="md-ellipsis">
-      Rocky Linux
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#arch-linux" class="md-nav__link">
     <span class="md-ellipsis">
       Arch Linux
@@ -499,24 +481,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#centos" class="md-nav__link">
-    <span class="md-ellipsis">
-      CentOS
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rocky-linux" class="md-nav__link">
-    <span class="md-ellipsis">
-      Rocky Linux
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#arch-linux" class="md-nav__link">
     <span class="md-ellipsis">
       Arch Linux
@@ -622,37 +586,6 @@ b. Debian:
 <div class="highlight"><pre><span></span><code>cp<span class="w"> </span>/usr/share/perl5/PVE/APLInfo.pm<span class="w"> </span>/usr/share/perl5/PVE/APLInfo.pm_back
 sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s|http://download.proxmox.com|https://proxmox.ccns.ncku.edu.tw/|g&#39;</span><span class="w"> </span>/usr/share/perl5/PVE/APLInfo.pm
 </code></pre></div>
-<h2 id="centos"><a href="//centos.ccns.ncku.edu.tw/centos">CentOS</a></h2>
-<p>(因頻寬有限，iso 映像檔下載暫時不對外開放，僅提供持有成功大學 ip 的使用者下載，造成不便請見諒)</p>
-<ul>
-<li>將套件更新來源類型從「鏡像站列表」(<code>mirrorlist</code>) 轉換成「單一鏡像站」(<code>baseurl</code>)
-<div class="highlight"><pre><span></span><code>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s/mirrorlist=/#mirrorlist=/g&#39;</span><span class="w"> </span>/etc/yum.repos.d/*.repo
-sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s/#baseurl=/baseurl=/g&#39;</span><span class="w"> </span>/etc/yum.repos.d/*.repo
-</code></pre></div></li>
-<li>將 <code>mirror.centos.org</code> 代換成 <code>centos.ccns.ncku.edu.tw</code>
-<div class="highlight"><pre><span></span><code>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s/mirror.centos.org/centos.ccns.ncku.edu.tw/g&#39;</span><span class="w"> </span>/etc/yum.repos.d/*.repo
-</code></pre></div></li>
-<li>更新套件列表與更新套件:
-<div class="highlight"><pre><span></span><code>dnf<span class="w"> </span>upgrade
-</code></pre></div>
-(以上適用於 CentOS 8 , CentOS Stream 8)</li>
-</ul>
-<p><div class="highlight"><pre><span></span><code>yum update
-</code></pre></div>
-(以上相容 CentOS 7, CentOS 8 與 CentOS Stream 8)</p>
-<h2 id="rocky-linux"><a href="//rockylinux.ccns.ncku.edu.tw/pub/rocky/">Rocky Linux</a></h2>
-<ul>
-<li>將套件更新來源類型從「鏡像站列表」(<code>mirrorlist</code>) 轉換成「單一鏡像站」(<code>baseurl</code>)
-<div class="highlight"><pre><span></span><code>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s/mirrorlist=/#mirrorlist=/g&#39;</span><span class="w"> </span>/etc/yum.repos.d/*.repo
-sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s/#baseurl=/baseurl=/g&#39;</span><span class="w"> </span>/etc/yum.repos.d/*.repo
-</code></pre></div></li>
-<li>將 <code>dl.rockylinux.org</code> 代換成 <code>rockylinux.ccns.ncku.edu.tw</code>
-<div class="highlight"><pre><span></span><code>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s/dl.rockylinux.org/rockylinux.ccns.ncku.edu.tw/g&#39;</span><span class="w"> </span>/etc/yum.repos.d/*.repo
-</code></pre></div></li>
-<li>更新套件列表與更新套件:
-<div class="highlight"><pre><span></span><code>dnf<span class="w"> </span>upgrade
-</code></pre></div></li>
-</ul>
 <h2 id="arch-linux"><a href="//archlinux.ccns.ncku.edu.tw/archlinux">Arch Linux</a></h2>
 <ul>
 <li>切換套件來源列表裡面的網域, 打開文字編輯器並在 <code>/etc/pacman.d/mirrorlist</code> 行首加上:
